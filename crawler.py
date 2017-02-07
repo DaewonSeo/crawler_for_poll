@@ -23,12 +23,12 @@ def crawling_page(file_name, url):
         for row in tables:
             for tr in row.find_all('tr'):
                 td = tr.find_all('td')
-                register_num = remove_space(td[0].text)
-                company_name = remove_space(td[1].text)
-                client_name = remove_space(td[2].text)
-                poll_name = remove_space(td[3].text)
-                created_at = td[4].text
-                region = remove_space(td[5].text)
+                register_num = remove_space(td[0].text) # 등록번호
+                company_name = remove_space(td[1].text) # 여론조사기관명
+                client_name = remove_space(td[2].text) # 조사의뢰기관명
+                poll_name = remove_space(td[3].text) # 여론조사명
+                created_at = td[4].text # 등록일
+                region = remove_space(td[5].text) # 대상지역
 
                 csv_writer.writerow([register_num, company_name, client_name, poll_name, created_at, region])
 
