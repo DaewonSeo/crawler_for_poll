@@ -27,7 +27,7 @@ def crawling_page(file_name, url):
                 company_name = remove_space(td[1].text) # 여론조사기관명
                 client_name = remove_space(td[2].text) # 조사의뢰기관명
                 poll_name = remove_space(td[3].text) # 여론조사명
-                link = 'http://www.nesdc.go.kr/' + td[3].find('a')['href']
+                link = 'http://www.nesdc.go.kr' + td[3].find('a')['href']
                 created_at = td[4].text # 등록일
                 region = remove_space(td[5].text) # 대상지역
             
