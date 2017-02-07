@@ -10,7 +10,7 @@ def remove_space(value):
     return value.replace('\t', "").replace('\n', "").replace("\r", "")
 
 def crawling_page(file_name, url):
-    with open('{}.csv'.format(file_name), 'a') as f:
+    with open('{}.csv'.format(file_name), 'w') as f:
         csv_writer = csv.writer(f) # csv를 작성하기 위한 쓰기 객체 생성
 
         req = requests.get(url) # 명시한url로request 요청
