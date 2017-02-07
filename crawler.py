@@ -10,7 +10,7 @@ def remove_space(value):
     return value.replace('\t', "").replace('\n', "").replace("\r", "")
 
 def crawling_page(file_name, url):
-    with open('{}.csv'.format(file_name), 'w') as f:
+    with open('{}.csv'.format(file_name), 'a') as f:
         csv_writer = csv.writer(f) # csv를 작성하기 위한 쓰기 객체 생성
 
         req = requests.get(url) # 명시한url로request 요청
@@ -37,8 +37,10 @@ def main(file_name, url):
     crawling_page(file_name, url)
 
 if __name__ == "__main__":
-    file_name = 'poll_list'
+    file_name = 'poll_list' # 파일 이름 
+    page_num = 1 # 크롤링을 원하는 페이지 번호 기입 (아래 링크 참조)
     url ='http://www.nesdc.go.kr/portal/bbs/B0000005/list.do?searchCnd=&searchWrd=\
             &gubun=&delCode=0&delcode=0&useAt=&replyAt=&menuNo=200467&sdate=&edate=\
-            &pdate=&deptId=&isk=&ise=&viewType=&pollGubuncd=&categories=&searchKey=&searchTime=&searchCode=&searchDecision=&pageIndex=8'
+            &pdate=&deptId=&isk=&ise=&viewType=&pollGubuncd=&categories=&searchKey=\
+            &searchTime=&searchCode=&searchDecision=&pageIndex={}'.format(page_num)
     main(file_name, url)
