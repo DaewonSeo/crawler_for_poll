@@ -7,7 +7,7 @@ import csv
 
 def remove_space(value):
     
-    return value.replace('\t', "").replace('\n', "")
+    return value.replace('\t', "").replace('\n', "").replace("\r", "")
 
 def crawling_page(file_name, url):
     with open('{}.csv'.format(file_name), 'a') as f:
